@@ -15,7 +15,13 @@ public class MainScreenSteps {
 
     @Given("hit login button on main screen")
     public void hitLoginButton() {
+        System.out.println("hit login button on main screen: "+Thread.currentThread().getId());
         mainScreen.hitLoginButton();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Given("hit drag button on main screen")

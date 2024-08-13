@@ -15,25 +15,24 @@ import org.openqa.selenium.support.PageFactory;
 public class SignUpScreen extends BaseTest {
     private final By userNameBox = AppiumBy.accessibilityId("input-email");
 
-    @AndroidFindBy(accessibility = "input-password")
-    @iOSXCUITFindBy(accessibility = "input-password")
-    private WebElement passWordBox;
+//    @AndroidFindBy(accessibility = "input-password")
+//    @iOSXCUITFindBy(accessibility = "input-password")
+    private final By passWordBox = AppiumBy.accessibilityId("input-password");
 
-    @AndroidFindBy(accessibility = "input-repeat-password")
-    @iOSXCUITFindBy(accessibility = "input-repeat-password")
-    private WebElement repeatPassWordBox;
+//    @AndroidFindBy(accessibility = "input-repeat-password")
+//    @iOSXCUITFindBy(accessibility = "input-repeat-password")
+    private final By repeatPassWordBox = AppiumBy.accessibilityId("input-repeat-password");
 
-    @AndroidFindBy(accessibility = "button-SIGN UP")
-    @iOSXCUITFindBy(accessibility = "button-SIGN UP")
-    private WebElement signUpButton;
+//    @AndroidFindBy(accessibility = "button-SIGN UP")
+//    @iOSXCUITFindBy(accessibility = "button-SIGN UP")
+    private final By signUpButton = AppiumBy.accessibilityId("button-SIGN UP");
 
-    @AndroidFindBy(id = "android:id/message")
-    @iOSXCUITFindBy(accessibility = "You successfully signed up!")
-    private WebElement sucessText;
+//    @AndroidFindBy(id = "android:id/message")
+//    @iOSXCUITFindBy(accessibility = "You successfully signed up!")
+    private final By sucessText = AppiumBy.accessibilityId("You successfully signed up!");
 
 
     public SignUpScreen() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
 

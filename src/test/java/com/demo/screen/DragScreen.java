@@ -14,15 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 public class DragScreen extends BaseTest {
-    @AndroidFindBy(accessibility = "drag-l2")
-    @iOSXCUITFindBy(accessibility = "drag-l2")
-    private WebElement drag1;
+    private final By drag1 = AppiumBy.accessibilityId("drag-l2");
 
     private final By drop1 = AppiumBy.accessibilityId("drop-l2");
 
     public DragScreen() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-
     }
 
     public void dragOne() {

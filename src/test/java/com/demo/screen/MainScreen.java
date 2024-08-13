@@ -12,13 +12,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.springframework.stereotype.Component;
 
-@Component
-//@Scope for not singleton use
 public class MainScreen extends BaseTest {
 
     @AndroidFindBy(accessibility = "Login")
     @iOSXCUITFindBy(accessibility = "Login")
-    private WebElement loginButton;
+    private final By loginButton = AppiumBy.accessibilityId("Login");
 
     private final By homeButton = AppiumBy.accessibilityId("Home");
 
@@ -34,20 +32,15 @@ public class MainScreen extends BaseTest {
     @iOSXCUITFindBy(accessibility = "Swipe")
     private WebElement swipeButton;
 
-    @AndroidFindBy(accessibility = "Drag")
-    @iOSXCUITFindBy(accessibility = "Drag")
-    private WebElement dragButton;
+    private final By dragButton = AppiumBy.accessibilityId("Drag");
 
 
     public MainScreen() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-
     }
 
 
     public void hitLoginButton() {
-        System.out.println(app.isElementExist(this.loginButton));
-        app.click(this.loginButton);
+        app.click(AppiumBy.accessibilityId("Login"));
     }
 
     public void hitHomeButton() {

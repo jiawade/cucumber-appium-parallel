@@ -24,8 +24,6 @@ public class LoginScreen extends BaseTest {
     private final By signUpTab = AppiumBy.accessibilityId("button-sign-up-container");
 
     public LoginScreen() {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-
     }
 
     public void enterUserName(String text) {

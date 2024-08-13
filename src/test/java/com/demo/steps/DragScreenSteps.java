@@ -13,7 +13,13 @@ public class DragScreenSteps {
 
     @Given("drag image to target")
     public void hitLoginButton() {
+        System.out.println("last: " + Thread.currentThread().getId());
         dragScreen.dragOne();
+        try {
+            Thread.sleep(9000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
