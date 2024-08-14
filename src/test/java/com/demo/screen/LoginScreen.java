@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.springframework.stereotype.Component;
 
+//@Component
 public class LoginScreen extends BaseTest {
     @AndroidFindBy(accessibility = "input-email")
     @iOSXCUITFindBy(accessibility = "input-email")
@@ -23,7 +24,12 @@ public class LoginScreen extends BaseTest {
 
     private final By signUpTab = AppiumBy.accessibilityId("button-sign-up-container");
 
+    AppActions app;
+
+
     public LoginScreen() {
+        app = new AppActions(driverLocal.get());
+
     }
 
     public void enterUserName(String text) {

@@ -7,11 +7,12 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.Objects;
+
 public abstract class BaseTest {
+    protected static final ThreadLocal<AppiumDriver> driverLocal = new ThreadLocal<>();
 
     protected Scenario scenario;
-
-    public static AppiumServer server;
 
     protected static AppiumDriver driver;
 
@@ -21,14 +22,13 @@ public abstract class BaseTest {
     }
 
 
-    protected void setDriver(AppiumDriver driver, AppiumServer server, AppActions app) {
-        BaseTest.server = server;
+    protected void setDriver(AppiumDriver driver, AppActions app) {
         BaseTest.driver = driver;
-        this.app = app;
+        BaseTest.app = app;
     }
 
     protected void setScenario(Scenario scenario) {
-        this.scenario=scenario;
+        this.scenario = scenario;
     }
 
 }

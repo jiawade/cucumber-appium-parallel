@@ -34,7 +34,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 @SpringBootTest(classes = AppiumConfiguration.class)
 public class Hook  extends BaseTest{
     private static final ThreadLocal<AppiumServer> appiumServer = new ThreadLocal<>();
-    private static final ThreadLocal<AppiumDriver> driverLocal = new ThreadLocal<>();
     private final List<String> devices = Lists.newArrayList("iPhone 14 Pro Max", "iPhone 14 Pro");
     private static final ThreadLocal<String> assignedDevice = new ThreadLocal<>();
     private static final AtomicInteger deviceIndex = new AtomicInteger(0);
@@ -46,7 +45,6 @@ public class Hook  extends BaseTest{
 
     @Before()
     public void setComponents(Scenario scenario) {
-        System.out.println("---------------- "+Thread.currentThread().getId());
         if (assignedDevice.get() == null) {
             int index = deviceIndex.getAndIncrement() % devices.size();
             assignedDevice.set(devices.get(index));
@@ -61,7 +59,7 @@ public class Hook  extends BaseTest{
         }
 
         driver = driverLocal.get();
-        super.setDriver(driverLocal.get(), appiumServer.get(), new AppActions(driverLocal.get()));
+        super.setDriver(driverLocal.get(), new AppActions(driverLocal.get()));
     }
 
     @After()

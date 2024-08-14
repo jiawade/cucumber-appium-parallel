@@ -1,6 +1,7 @@
 package com.demo.screen;
 
 import com.demo.components.AppActions;
+import com.demo.components.AppiumServer;
 import com.demo.init.BaseTest;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
@@ -34,8 +35,10 @@ public class MainScreen extends BaseTest {
 
     private final By dragButton = AppiumBy.accessibilityId("Drag");
 
+    AppActions app;
 
     public MainScreen() {
+        app = new AppActions(driverLocal.get());
     }
 
 

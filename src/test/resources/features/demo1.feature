@@ -8,6 +8,6 @@ Feature: This is a test feature-2
     When hit sign up button
     Then successfully sign up a account
 
-  Scenario: drag and drop-2-1
+  Scenario: drag and drop-2-2
     Given hit drag button on main screen
     And drag image to target

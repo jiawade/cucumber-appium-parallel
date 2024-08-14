@@ -16,8 +16,8 @@ import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 
-//@Configuration
-//@ComponentScan(basePackages = "com.demo")
+@Configuration
+@ComponentScan(basePackages = "com.demo")
 @Component
 public class AppiumConfiguration extends BaseTest {
 

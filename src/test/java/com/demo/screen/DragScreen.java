@@ -13,12 +13,17 @@ import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+//@Component
 public class DragScreen extends BaseTest {
     private final By drag1 = AppiumBy.accessibilityId("drag-l2");
 
     private final By drop1 = AppiumBy.accessibilityId("drop-l2");
 
+    AppActions app;
+
+
     public DragScreen() {
+        app = new AppActions(driverLocal.get());
     }
 
     public void dragOne() {

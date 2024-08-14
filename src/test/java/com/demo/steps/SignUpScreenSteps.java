@@ -17,10 +17,12 @@ public class SignUpScreenSteps {
 
     @Given("fill in account info")
     public void hitLoginButton() {
-        System.out.format("Thread ID :" + Thread.currentThread().getId());
-        signUpScreen.enterUserName("abc@123.com");
-        signUpScreen.enterPassWord("11111111");
-        signUpScreen.enterRepeatPassWord("11111111");
+        for (int i =0; i<12;i++){
+            signUpScreen.enterUserName("abc@123.com");
+            signUpScreen.enterPassWord("11111111");
+            signUpScreen.enterRepeatPassWord("11111111");
+        }
+
     }
 
     @When("hit sign up button")
